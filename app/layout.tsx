@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,8 +28,232 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+          <header
+        style={{
+          width: "100%",
+          backdropFilter: "saturate(180%) blur(6px)",
+          background:
+            "linear-gradient(90deg, rgba(255,255,255,0.75), rgba(250,250,250,0.6))",
+          borderBottom: "1px solid rgba(0,0,0,0.06)",
+          boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
+        }}
+          >
+        <div
+          style={{
+            maxWidth: 1200,
+            margin: "0 auto",
+            padding: "1rem 1.25rem",
+            display: "flex",
+            alignItems: "center",
+            gap: 20,
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 10,
+          textDecoration: "none",
+          color: "inherit",
+          fontWeight: 700,
+          fontSize: 18,
+            }}
+            aria-label="Homepage"
+          >
+            <span
+          style={{
+            width: 40,
+            height: 40,
+            display: "inline-grid",
+            placeItems: "center",
+            borderRadius: 8,
+            background:
+              "linear-gradient(135deg,#7c3aed,#06b6d4)",
+            color: "white",
+            fontWeight: 800,
+            fontFamily: "var(--font-geist-mono)",
+          }}
+            >
+          EC
+            </span>
+            Ecom
+          </Link>
+
+          <nav
+            aria-label="Primary"
+            style={{ display: "flex", gap: 12, marginLeft: 12, alignItems: "center" }}
+          >
+            <Link
+          href="/products"
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            textDecoration: "none",
+            color: "#0f172a",
+            fontWeight: 600,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "transparent",
+          }}
+            >
+          S products
+          <span
+            style={{
+              fontSize: 11,
+              padding: "2px 6px",
+              background: "#eef2ff",
+              color: "#4f46e5",
+              borderRadius: 6,
+              fontWeight: 700,
+            }}
+          >
+            SSR
+          </span>
+            </Link>
+
+            <Link
+          href="/cproducts"
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            textDecoration: "none",
+            color: "#0f172a",
+            fontWeight: 600,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "transparent",
+          }}
+            >
+          C products
+          <span
+            style={{
+              fontSize: 11,
+              padding: "2px 6px",
+              background: "#ecfdf5",
+              color: "#059669",
+              borderRadius: 6,
+              fontWeight: 700,
+            }}
+          >
+            CSR
+          </span>
+            </Link>
+          </nav>
+
+          <div style={{ marginLeft: "auto", display: "flex", gap: 12, alignItems: "center" }}>
+            <a
+          href="/search"
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            textDecoration: "none",
+            color: "#6b7280",
+            background: "transparent",
+            fontSize: 14,
+          }}
+            >
+          Search
+            </a>
+            <a
+          href="/cart"
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            textDecoration: "none",
+            color: "white",
+            background: "#111827",
+            fontWeight: 700,
+            fontSize: 14,
+          }}
+            >
+          Cart
+            </a>
+          </div>
+        </div>
+          </header>
+
+          <main style={{ flex: 1, width: "100%", maxWidth: 1200, margin: "0 auto", padding: "2rem 1.25rem" }}>
         {children}
+          </main>
+
+          <footer
+        style={{
+          borderTop: "1px solid rgba(0,0,0,0.06)",
+          background: "linear-gradient(180deg, rgba(250,250,250,0.4), rgba(245,245,245,0.6))",
+          padding: "2rem 1.25rem",
+        }}
+          >
+        <div
+          style={{
+            maxWidth: 1200,
+            margin: "0 auto",
+            display: "flex",
+            gap: 24,
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+          }}
+        >
+          <div style={{ minWidth: 220 }}>
+            <a href="/" style={{ textDecoration: "none", color: "inherit", fontWeight: 800, display: "inline-flex", gap: 10, alignItems: "center" }}>
+          <span
+            style={{
+              width: 36,
+              height: 36,
+              display: "inline-grid",
+              placeItems: "center",
+              borderRadius: 6,
+              background: "linear-gradient(135deg,#7c3aed,#06b6d4)",
+              color: "white",
+              fontFamily: "var(--font-geist-mono)",
+              fontSize: 14,
+            }}
+          >
+            EC
+          </span>
+          Ecom
+            </a>
+            <p style={{ marginTop: 12, color: "#6b7280", maxWidth: 320 }}>
+          Modern e‑commerce UI — fast, accessible, and built to scale. Explore server and client-driven product pages.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
+            <div>
+          <h4 style={{ margin: 0, fontSize: 14, fontWeight: 700 }}>Products</h4>
+          <ul style={{ listStyle: "none", padding: 0, marginTop: 10, display: "grid", gap: 8 }}>
+            <li><a href="/tk-products" style={{ color: "#374151", textDecoration: "none" }}>tk products (SSR)</a></li>
+            <li><a href="/cproducts" style={{ color: "#374151", textDecoration: "none" }}>cproducts (CSR)</a></li>
+          </ul>
+            </div>
+
+            <div>
+          <h4 style={{ margin: 0, fontSize: 14, fontWeight: 700 }}>Company</h4>
+          <ul style={{ listStyle: "none", padding: 0, marginTop: 10, display: "grid", gap: 8 }}>
+            <li><a href="/about" style={{ color: "#374151", textDecoration: "none" }}>About</a></li>
+            <li><a href="/contact" style={{ color: "#374151", textDecoration: "none" }}>Contact</a></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ maxWidth: 1200, margin: "1.5rem auto 0", padding: "0 1.25rem", color: "#9ca3af", fontSize: 13 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+            <span>© {new Date().getFullYear()} Ecom — All rights reserved.</span>
+            <span style={{ display: "flex", gap: 12 }}>
+          <a href="/terms" style={{ color: "inherit", textDecoration: "none" }}>Terms</a>
+          <a href="/privacy" style={{ color: "inherit", textDecoration: "none" }}>Privacy</a>
+            </span>
+          </div>
+        </div>
+          </footer>
+        </div>
       </body>
     </html>
   );
 }
+

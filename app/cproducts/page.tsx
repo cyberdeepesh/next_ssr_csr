@@ -42,7 +42,7 @@ const page = () => {
 
                                 <button className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:bg-blue-700 text-sm">
                                     
-                                    <Link href={`/api/cproducts/${item.id}`}>
+                                    <Link href={`/cproducts/${item.id}`}>
                                         View Details
                                     </Link>
                                     
