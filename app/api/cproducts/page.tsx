@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const page = () => {
@@ -40,7 +41,11 @@ const page = () => {
                                 </span>
 
                                 <button className="bg-blue-600 text-white px-4 py-1 rounded-lg hover:bg-blue-700 text-sm">
-                                    Buy
+                                    
+                                    <Link href={`/api/cproducts/${item.id}`}>
+                                        View Details
+                                    </Link>
+                                    
                                 </button>
                             </div>
                         </div>
